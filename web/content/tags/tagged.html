@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>[[name]] - Tagged - The World Times News</title>
+
+	<meta name="description" content="[[name]] - Tagged on The World Times">
+	<meta property="og:url" content="https://theworldtimes.in/t/[[name]]">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="[[name]] - The World Times">
+	<meta property="og:description" content="[[name]] - Tagged on The World Times">
+	<meta property="og:image" content="/res/banner.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/t/[[name]]">
+	<meta name="twitter:title" content="[[name]] - The World Times">
+	<meta name="twitter:description" content="[[name]] - Tagged on The World Times">
+	<meta name="twitter:image" content="/res/banner.png">
+	<meta name="description" content="[[name]] - Tagged on The World Times">
+	<meta property="og:url" content="https://theworldtimes.in/t/[[name]]">
+	<meta property="og:description" content="[[name]] - Tagged on The World Times">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/t/[[name]]">
+	<meta name="twitter:description" content="[[name]] - Taggedon The World Times">
+
+	<link rel="stylesheet" href="/res/css/styles.css">
+	<link rel="icon" href="/res/logo.png">
+
+	<script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+	<script src="/res/js/ads.js"></script>
+	<script src="/res/js/tag.js"></script>
+	<script src="/res/js/navbar-footer.js"></script>
+</head>
+<body class="has-navbar-fixed-top">
+	<nav id="navbar"></nav>
+	<div class="container is-fullhd p-4">
+		<div class="columns">
+			<div class="container p-4 column is-9">
+				<div class="container m-2 mt-4">
+					<div class="p-4 my-2 column is-6 is-offset-3">
+						<img src="/res/logo-transparent.png" alt="The World Times" width="100%" height="auto">
+					</div>
+					<h1 class="title is-size-1 has-text-centered">
+						Tagged - <span class="tag is-danger is-large">[[name]]</span>
+					</h1>
+					<p id="tagged" class="columns is-multiline is-2"></p>
+				</div>
+			</div>
+			<div class="column is-3" id="ads"></div>
+		</div>
+	</div>
+	
+	<div id="toasts" class="column is-3 is-flex is-flex-direction-column mb-0 pb-0" style="position: fixed; top: 0; right: 0; z-index: 100000;"></div>
+	
+	<footer id="footer"></footer>
+
+	<script>
+		load("[[name]]");
+		setup_ads();
+		load_navbar_footer();
+	</script>
+</body>
+</html>

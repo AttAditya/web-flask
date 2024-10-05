@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Dashboard - The World Times News</title>
+
+	<meta name="description" content="Dashboard - The World Times">
+	<meta property="og:url" content="https://theworldtimes.in/dash">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="[[name]] - The World Times">
+	<meta property="og:description" content="Dashboard - The World Times">
+	<meta property="og:image" content="/res/banner.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/dash">
+	<meta name="twitter:title" content="[[name]] - The World Times">
+	<meta name="twitter:description" content="Dashboard - The World Times">
+	<meta name="twitter:image" content="/res/banner.png">
+	<meta name="description" content="Dashboard - The World Times">
+	<meta property="og:url" content="https://theworldtimes.in/dash">
+	<meta property="og:description" content="Dashboard - The World Times">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/dash">
+	<meta name="twitter:description" content="[[name]] - Profile - The World Times">
+
+	<link rel="stylesheet" href="/res/css/styles.css">
+	<link rel="icon" href="/res/logo.png">
+
+	<script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+	<script src="/res/js/ads.js"></script>
+	<script src="/res/js/dash.js"></script>
+	<script src="/res/js/navbar-footer.js"></script>
+</head>
+<body class="has-navbar-fixed-top">
+	<nav id="navbar"></nav>
+	<div class="container is-fullhd p-4">
+		<div class="columns">
+			<div class="container p-4 column is-9">
+				<div class="container m-2 mt-4">
+					<h1 class="title is-size-1 has-text-centered">
+						Profile
+					</h1>
+					<div id="profile" class="box has-text-centered column is-three-fifths is-offset-one-fifth">
+						<div class="column is-one-third is-offset-one-third">
+							<img src="[[img]]" alt="[[name]]" width="100%" height="auto" style="border-radius: 100%; aspect-ratio: 1 / 1; object-fit: cover;" onerror="this.src='/res/logo.png';">
+						</div>
+						<h1 class="title mt-2 has-text-weight-bold">
+							[[name]]
+						</h1>
+						<!--div class="subtitle">
+							Born, [[age]]
+						</div-->
+						<p class="mt-2">
+							[[bio]]
+						</p>
+					</div>
+					<div class="has-text-centered">
+						<!--a href="#">
+							<button class="button is-success">
+								<i class="fa-solid fa-user-pen"></i>
+								<span class="ml-2">
+									Edit Profile
+								</span>
+							</button>
+						</a-->
+						<a href="/u/out">
+							<button class="button is-danger">
+								<i class="fa-solid fa-door-open"></i>
+								<span class="ml-2">
+									Log Out
+								</span>
+							</button>
+						</a>
+					</div>
+				</div>
+				
+				<div id="actions" class="container m-2 mt-4 is-hidden">
+					<h1 class="title is-size-1 has-text-centered">
+						Actions
+					</h1>
+					<div class="has-text-centered">
+						<a href="/a/new">
+							<button class="button is-success is-large">
+								<i class="fa-solid fa-file-pen"></i>
+								<span class="ml-2">
+									New Article
+								</span>
+							</button>
+						</a>
+					</div>
+				</div>
+				<script>
+					let perms = [[permissions]];
+					if (perms.length) {
+						document.getElementById("actions").classList.remove("is-hidden");
+					}
+				</script>
+
+				<div class="container m-2 mt-4">
+					<h1 class="title is-size-1 has-text-centered">
+						Articles by <span class="has-text-weight-bold">[[id]]</span>
+					</h1>
+					<p id="tagged" class="columns is-multiline is-2 is-gapless"></p>
+				</div>
+			</div>
+			<div class="column is-3" id="ads"></div>
+		</div>
+	</div>
+	
+	<div id="toasts" class="column is-3 is-flex is-flex-direction-column mb-0 pb-0" style="position: fixed; top: 0; right: 0; z-index: 100000;"></div>
+	
+	<footer id="footer"></footer>
+
+	<script>
+		setup_ads();
+		load_navbar_footer();
+		load("[[id]]");
+	</script>
+</body>
+</html>

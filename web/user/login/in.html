@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Sign In</title>
+
+	<link rel="stylesheet" href="/res/css/styles.css">
+	<link rel="icon" href="/res/logo.png">
+
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="The World Times">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:image" content="/res/logo.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:title" content="The World Times">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta name="twitter:image" content="/res/logo.png">
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+
+	<script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+	<script src="/res/js/login.js"></script>
+</head>
+<body>
+	<div class="container p-6">
+		<div class="column is-half is-offset-one-quarter box p-4">
+			<div class="content has-text-centered">
+				<img src="/res/logo.png" alt="The World Times" style="width: 128px; height: 64px; object-fit: cover;">
+				<h1 class="title m-0">
+					Sign In
+				</h1>
+				<p class="p-4">
+					<div class="field has-addons">
+						<div class="control">
+							<button class="button is-black is-family-monospace" disabled="disabled">
+								Username
+							</button>
+						</div>
+						<div class="control is-expanded">
+							<input type="text" id="userid" placeholder="User ID" class="input">
+						</div>
+					</div>
+					<div class="field has-addons">
+						<div class="control">
+							<button class="button is-black is-family-monospace" disabled="disabled">
+								Password
+							</button>
+						</div>
+						<div class="control is-expanded">
+							<input type="password" id="password" placeholder="Password" class="input">
+						</div>
+					</div>
+					<button id="btn" class="button is-success" onclick="login();">
+						Log In
+					</button>
+					<div class="is-size-7">
+						<a href="/user/new">
+							Sign Up Page
+						</a>
+					</div>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="toasts" class="column is-3 is-flex is-flex-direction-column mb-0 pb-0" style="position: fixed; top: 0; right: 0; z-index: 100000;"></div>
+</body>
+</html>

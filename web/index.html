@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>The World Times News</title>
+
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="The World Times">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:image" content="/res/banner.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:title" content="The World Times">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta name="twitter:image" content="/res/banner.png">
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+
+	<link rel="stylesheet" href="/res/css/styles.css">
+	<link rel="icon" href="/res/logo.png">
+
+	<script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+	<script src="/res/js/ads.js"></script>
+	<script src="/res/js/home.js"></script>
+	<script src="/res/js/navbar-footer.js"></script>
+</head>
+<body class="has-navbar-fixed-top">
+	<nav id="navbar"></nav>
+	<div class="container is-fullhd p-4">
+		<div class="columns">
+			<div class="container p-4 column is-9">
+				<div class="container m-2 mt-4">
+					<div class="p-4 my-2 column is-6 is-offset-3">
+						<img src="/res/logo-transparent.png" alt="The World Times" width="100%" height="auto">
+					</div>
+					<div class="content p-4">
+						<h1 class="title is-size-1 has-text-centered">
+							Headlines
+						</h1>
+						<p id="headlines" class="columns is-1 is-mobile" style="overflow-x: auto;"></p>
+						<script>
+							var banner_index = 0;
+							setInterval(() => {
+								let headlines_scroller = document.getElementById("headlines");
+								
+								let total_width = headlines_scroller.scrollWidth;
+								let total_children = headlines_scroller.childElementCount;
+								let scroll_amount = total_width / total_children;
+
+								headlines_scroller.scrollTo({
+									top: 0,
+									left: scroll_amount * banner_index,
+									behavior: "smooth"
+								});
+
+								banner_index += 1;
+								if (banner_index >= total_children) {
+									banner_index = 0;
+								}
+							}, 5000);
+						</script>
+					</div>
+				</div>
+				<div class="container m-2 mt-4 p-4">
+					<div class="content">
+						<h1 class="title is-size-1 has-text-centered">
+							Latest News
+						</h1>
+						<p id="recents" class="columns is-multiline is-2">
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column is-3" id="ads"></div>
+		</div>
+	</div>
+	
+	<div id="toasts" class="column is-3 is-flex is-flex-direction-column mb-0 pb-0" style="position: fixed; top: 0; right: 0; z-index: 100000;"></div>
+	
+	<footer id="footer"></footer>
+
+	<script>
+		load();
+		setup_ads();
+		load_navbar_footer();
+	</script>
+</body>
+</html>

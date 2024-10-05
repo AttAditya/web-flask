@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>New Article</title>
+
+	<link rel="stylesheet" href="/res/css/styles.css">
+	<link rel="icon" href="/res/logo.png">
+
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="The World Times">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:image" content="/res/banner.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:title" content="The World Times">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta name="twitter:image" content="/res/banner.png">
+	<meta name="description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="og:url" content="https://theworldtimes.in/">
+	<meta property="og:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+	<meta property="twitter:domain" content="theworldtimes.in">
+	<meta property="twitter:url" content="https://theworldtimes.in/">
+	<meta name="twitter:description" content="The World Times Bring You All Around the World! News, Entertainment, Sports, Science, Tech, Health and more...">
+
+	<script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+	<script src="/res/js/new-article.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bulma-tagsinput@2.0.0/dist/js/bulma-tagsinput.min.js"></script>
+	<script src="https://cdn.tiny.cloud/1/lib2n3vb5fes6g373hvxo1qlxyaciab3yhtlreegftk97yko/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+		tinymce.init({
+			selector: "#art-content-editor",
+			plugins: "link image media emoticons autolink table charmap code",
+			toolbar1: "undo redo | blocks | align | outdent indent | link image media | table | selectall copy cut paste pastetext",
+			toolbar2: "forecolor backcolor | bold italic underline strikethrough blockquote subscript superscript removeformat | emoticons charmap",
+			table_toolbar: "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+			images_upload_url: "/upload/image"
+		});
+	</script>
+</head>
+<body class="has-navbar-fixed-top">
+	<nav class="navbar is-fixed-top is-primary">
+		<div class="navbar-brand">
+			<a href="/" class="navbar-item">
+				<img src="/res/logo-transparent.png" alt="The World Times" style="mix-blend-mode: screen; filter: brightness(100);">
+			</a>
+
+			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" onclick="document.getElementById('navbar-menu').classList.toggle('is-active'); this.classList.toggle('is-active');">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+
+		<div id="navbar-menu" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item px-2">
+					<button class="button is-primary is-inverted" id="meta-mode-button" onclick="switch_mode('meta');">
+						<i class="fa-solid fa-file-signature"></i>
+						<span class="ml-2">
+							Meta Editor
+						</span>
+					</button>
+				</div>
+				<div class="navbar-item px-2">
+					<button class="button is-primary is-inverted" id="content-mode-button" onclick="switch_mode('content');">
+						<i class="fa-solid fa-file-pen"></i>
+						<span class="ml-2">
+							Content Editor
+						</span>
+					</button>
+				</div>
+				<div class="navbar-item px-2">
+					<button class="button is-primary is-inverted" id="preview-mode-button" onclick="preview_load(); switch_mode('preview');">
+						<i class="fa-solid fa-file-circle-check"></i>
+						<span class="ml-2">
+							Preview
+						</span>
+					</button>
+				</div>
+				<div class="navbar-item px-2">
+					<button class="button is-primary is-inverted" id="publish-mode-button" onclick="switch_mode('publish');">
+						<i class="fa-solid fa-file-export"></i>
+						<span class="ml-2">
+							Publish
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div id="void-container" class="container has-text-centered">
+		<h1 class="is-size-1 has-text-weight-bold has-text-black p-4">
+			Please switch mode from menu bar
+		</h1>
+		<button id="void-mode-button" class="is-hidden"></button>
+	</div>
+
+	<div id="meta-container" class="container is-fullhd p-4 m-2 is-hidden">
+		<div class="column is-6 is is-offset-3">
+			<div class="box">
+				<div class="content has-text-centered">
+					<h1 class="title">
+						About Article
+					</h1>
+					<div class="container">
+						<div class="field has-addons">
+							<div class="control">
+								<button class="button is-black is-family-monospace" disabled="disabled">
+									Name
+								</button>
+							</div>
+							<div class="control is-expanded">
+								<input type="text" class="input is-hovered" name="article-name-input" id="article-name-input" placeholder="Article Name" maxlength="100" minlength="1" onblur="document.getElementById('article-title').innerText = this.value;">
+							</div>
+						</div>
+						<div class="field has-addons" style="height: fit-content;">
+							<div class="control">
+								<button class="button is-black is-family-monospace" disabled="disabled">
+									Tags
+								</button>
+							</div>
+							<div class="control is-expanded">
+								<script>
+									function update_tags() {
+										let tags_input = document.getElementById("article-tags-input");
+										document.getElementById('article-tags').innerHTML = `<a href="#" class="tag is-warning">${tags_input.value.split(",").join('</a><a href="#" class="tag is-warning">')}</a>`;
+									}
+								</script>
+								<input id="article-tags-input" class="input is-hovered" type="tags" placeholder="Add Tag" value="" onblur="bulmaTagsinput.attach();" onchange="update_tags();" style="overflow-x: scroll;">
+							</div>
+						</div>
+						<div class="field has-addons" style="height: fit-content;">
+							<div class="control">
+								<button class="button is-black is-family-monospace" disabled="disabled">
+									Editors
+								</button>
+							</div>
+							<div class="control is-expanded">
+								<script>
+									function update_authors() {
+										let authors_input = document.getElementById("article-authors-input");
+										//document.getElementById('article-author').innerHTML = `<a href="#" class="tag is-warning">${tags_input.value.split(",").join('</a><a href="#" class="tag is-warning">')}</a>`;
+									}
+								</script>
+								<input id="article-authors-input" class="input is-hovered" type="tags" placeholder="Add Author(User ID)" value="" onblur="bulmaTagsinput.attach();" onchange="update_authors();" style="overflow-x: scroll;">
+							</div>
+						</div>
+						<script>
+							bulmaTagsinput.attach();
+						</script>
+						<div class="field has-addons mb-1">
+							<div class="control">
+								<button class="button is-black is-family-monospace" disabled="disabled">
+									Thumbnail
+								</button>
+							</div>
+							<div class="control is-expanded">
+								<script>
+									function load_thumbnail_image(img_url) {
+										let img_element = document.createElement("img");
+										img_element.src = img_url;
+										img_element.crossOrigin = "anonymous";
+										img_element.onload = () => {
+											let canvas = document.createElement("canvas");
+											canvas.width = img_element.width;
+											canvas.height = img_element.height;
+
+											let ctx = canvas.getContext("2d");
+											ctx.drawImage(img_element, 0, 0);
+
+											let thumbnail_url = canvas.toDataURL();
+
+											document.getElementById("article-thumbnail-src").value = thumbnail_url;
+
+											document.getElementById("article-thumbnail").outerHTML = `<img id="article-thumbnail" width="100%" style="aspect-ratio: 1200 / 628; object-fit: contain;">`;
+											
+											let thumbnail = document.getElementById("article-thumbnail");
+											thumbnail.src = thumbnail_url ? thumbnail_url : "error";
+											thumbnail.onerror = () => {
+												thumbnail.outerHTML = `<span class='is-size-7' id='article-thumbnail'>(Please add thumbnail through meta editor)</span>`;
+											}
+										}
+									}
+
+									function update_image(src) {
+										document.getElementById("article-thumbnail").outerHTML = `<img id="article-thumbnail" width="100%" style="aspect-ratio: 1200 / 628; object-fit: contain;">`;
+										let thumbnail = document.getElementById("article-thumbnail");
+										thumbnail.src = src ? src : "error";
+										thumbnail.onerror = () => {
+											thumbnail.outerHTML = `<span class='is-size-7' id='article-thumbnail'>(Please add thumbnail through meta editor)</span>`;
+										}
+									}
+								</script>
+								<input type="text" class="input is-hovered" name="article-thumbnail-src" id="article-thumbnail-src" placeholder="URL" maxlength="100" minlength="1" onblur="update_image(this.value);">
+							</div>
+							<div class="control">
+								<script>
+									function choose_image() {
+										let file_pick = document.createElement('input');
+										file_pick.type = "file";
+										file_pick.accept = "image/*";
+										file_pick.click();
+										file_pick.onchange = () => {
+											load_thumbnail_image(URL.createObjectURL(file_pick.files[0]));
+										}
+									}
+								</script>
+								<button class="button is-info" onclick="choose_image();">
+									<i class="fa-solid fa-folder-open"></i>
+									<span class="ml-2">
+										Choose
+									</span>
+								</button>
+							</div>
+						</div>
+						<h6 class="is-size-7">1200x630 (in pixels)</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="preview-container" class="container is-hidden is-fullhd p-4">
+		<div class="columns">
+			<div class="column is-9">
+				<div class="container p-3">
+					<center class="has-text-black">
+						<h2 id="article-title" class="title is-size-1 has-text-black has-text-weight-bold">
+							(Please add title through meta editor)
+						</h2>
+					</center>
+					<div class="publish-date mt-4">
+						Published: <span id="art-time" class="tag is-info"><b>[[art-time]] UTC</b></span>
+						<script>
+							let datetime = new Date("[[art-time]] UTC");
+							document.getElementById("art-time").innerHTML = `<b>${datetime.toString()}</b>`;
+						</script>
+					</div>
+					<div class="tags mt-1">
+						Tagged: <span class="tags ml-2" id="article-tags"><span class="is-size-7">(Please add tags through meta editor)</span></span>
+					</div>
+					<figure class="column is-12">
+						<img id="article-thumbnail" src="" onerror="this.outerHTML=`<span class='is-size-7' id='article-thumbnail'>(Please add thumbnail through meta editor)</span>`;" width="100%" style="aspect-ratio: 1200 / 628; object-fit: contain;">
+					</figure>
+					<div class="content p-4 mt-4 mb-4 is-size-4 has-text-black" id="content">
+						<span class="is-size-7 has-text-weight-semibold">
+							(Please use content editor to add content)
+						</span>
+					</div>
+					<div class="content mt-1">
+						<h1 class="title">
+							Article by
+						</h1>
+						<div class="columns is-multiline" id="article-authors"></div>
+					</div>
+					<div class="content">
+						<h1 class="title">
+							Share this Article!
+						</h1>
+						<div class="buttons are-medium">
+							<button class="button is-primary" onclick="toast_notify('Can not share article in preview mode...', 'warning');">
+								<i class="fa-solid fa-share"></i>
+							</button>
+							<button class="button is-primary" onclick="toast_notify('Can not share article in preview mode...', 'warning');">
+								<i class="fa-brands fa-whatsapp"></i>
+							</button>
+							<button class="button is-primary" onclick="toast_notify('Can not share article in preview mode...', 'warning');">
+								<i class="fa-brands fa-facebook"></i>
+							</button>
+							<button class="button is-primary" onclick="toast_notify('Can not share article in preview mode...', 'warning');">
+								<i class="fa-brands fa-twitter"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column is-3">
+				<div class="box m-4"><div class="has-text-black has-text-weight-bold">Slot available for advertising.</div></div>
+				<div class="box m-4"><div class="has-text-black has-text-weight-bold">Slot available for advertising.</div></div>
+				<div class="box m-4"><div class="has-text-black has-text-weight-bold">Slot available for advertising.</div></div>
+				<div class="box m-4"><div class="has-text-black has-text-weight-bold">Slot available for advertising.</div></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="content-container" class="container is-hidden has-text-centered p-4">
+		<textarea id="art-content-editor"></textarea>
+	</div>
+	
+	<div id="publish-container" class="container is-hidden has-text-centered p-4">
+		<div class="content is-large">
+			Are you sure you want to publish this article?
+		</div>
+		<button id="final-submit-button" class="button is-danger" onclick="send_article();">
+			Yes
+		</button>
+	</div>
+
+	<div id="toasts" class="column is-3 is-flex is-flex-direction-column mb-0 pb-0" style="position: fixed; top: 0; right: 0; z-index: 100000;"></div>
+</body>
+</html>
