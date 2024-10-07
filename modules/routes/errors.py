@@ -18,10 +18,5 @@ def add_routes(app, dbs):
 
     @app.route("/errors/get")
     def errors_get():
-        res = errors_db.fetch()
-        all_items = res.items
-        while res.last:
-            res = errors_db.fetch(last=res.last)
-            all_items += res.items
-
-        return "\n<br>\n".join(list(map(str, sorted(res.items, reverse=True))))
+        all_items = errors_db.get_all()
+        return "\n<br>\n".join(list(map(str, sorted(all_items, reverse=True))))

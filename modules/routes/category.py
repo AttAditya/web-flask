@@ -12,13 +12,7 @@ def add_routes(app, dbs):
     @app.route("/c/<category>/get")
     @app.route("/category/<category>/get")
     def category_get(category: str):
-        res = tags_db.fetch()
-        all_items = res.items
-        while res.last:
-            res = tags_db.fetch(last=res.last)
-            all_items += res.items
-        
-        all_tags_data = res.items
+        all_tags_data = tags_db.get_all()
         all_tags_data.sort(key=lambda x: len(x["articles"]), reverse=True)
         
         tags = [{

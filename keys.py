@@ -1,3 +1,6 @@
+from os import environ
+
 SECRETS = {
-    "DETA": None
+    "MONGO": environ.get("MONGO", "mongodb://localhost:27017")
 }
+
