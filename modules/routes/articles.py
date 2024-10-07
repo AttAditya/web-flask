@@ -91,7 +91,7 @@ def add_routes(app, dbs):
         
         if not content_file: return "Not Found"
         content_stream = content_file.read()
-        content_data = content_stream.decode()
+        content_data = content_stream
         
         return content_data
 
