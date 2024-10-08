@@ -1,6 +1,6 @@
 from os import listdir
-from .base import Base
-from .drive import Drive
+from base import Base
+from drive import Drive
 from json import loads
 
 DATA_PATH = "./.data"
@@ -46,4 +46,10 @@ def transfer_drives():
 
     for drive_folder in drives:
         transfer_drive(drive_folder)
+
+def convert():
+    pass
+
+if __name__ == "__main__":
+    convert()
 

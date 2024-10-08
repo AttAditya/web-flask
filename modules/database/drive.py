@@ -1,4 +1,4 @@
-from .provider import mongo_db
+from provider import mongo_db
 
 class Drive:
     def __init__(self, name: str) -> None:
